@@ -1,0 +1,195 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Avenir Next', 'Lantinghei SC';
+    font-size: 14px;
+    /*-webkit-font-smoothing：none | subpixel-antialiased | antialiased
+     *none：对低像素的文本比较好
+     *subpixel-antialiased：默认值
+     *antialiased：抗锯齿
+
+     *-moz-osx-font-smoothing是mozilla给特定操作系统推出的特性增强
+     *设置grayscale对于图标字体表现更清晰，减轻次像素渲染带来的相邻像素色彩污染问题
+     */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    margin-top: -300px;
+    background: #333;
+    overflow: hidden;
+    -webkit-perspective: 800px;
+}
+
+/**h海报样式**/
+.photo {
+    width: 260px;
+    height: 320px;
+    position: absolute;
+    z-index: 1;
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .01);
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .01);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .01);
+
+}
+
+.photo .side {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.photo .side-front {
+
+}
+
+.photo .side-front .image {
+    width: 100%;
+    height: 250px;
+    line-height: 250px;
+    overflow: hidden;
+}
+
+.photo .side-front .image img {
+    width: 100%;
+}
+
+.photo .side-front .image .caption {
+    text-align: center;
+    font-size: 16px;
+    line-height: 50px;
+}
+
+.photo .side-back {
+
+}
+
+.photo .side-back .desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+
+/*当前选中的海报样式*/
+.photo_center {
+    left: 50%;
+    top: 50%;
+    margin: -160px 0 0 -130px;
+    z-index: 999;
+}
+
+/*负责旋转*/
+.photo-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all .6s;
+}
+
+.photo-wrap .side-front {
+    -webkit-transform: rotateY(0deg);
+}
+
+.photo-wrap .side-back {
+    -webkit-transform: rotateY(180deg);
+}
+
+.photo-wrap .side {
+    -webkit-backface-visibility: hidden;
+}
+
+.photo_front .photo-wrap {
+    -webkit-transform: rotateY(0deg);
+}
+
+.photo_back .photo-wrap {
+    -webkit-transform: rotateY(180deg);
+}
+
+.nav {
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 10%;
+    background: #fff;
+    z-index: 9999;
+    text-align: center;
+}
+
+.nav .i {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    cursor: pointer;
+    background: #bbb;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-transform: scale(.48);
+    -webkit-transition: all .5s;
+}
+.nav .i::after{
+    content: '<-';
+    margin-left: -13px;
+    display: inline-block;
+    line-height:30px;
+    text-align: center;
+    color: #fff;
+    opacity:0;
+}
+.nav .i_current {
+    -webkit-transform: scale(1);
+}
+.nav .i_current::after{
+    opacity:1;
+}
+
+.nav .i_back {
+    -webkit-transform: rotate(-180deg);
+    background: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
